@@ -187,7 +187,7 @@ if instance_exists(o_enemy_body){
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>o_tankdebr</object>
+            <object>o_teankdebr</object>
           </argument>
           <argument>
             <kind>4</kind>

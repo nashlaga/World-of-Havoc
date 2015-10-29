@@ -60,20 +60,18 @@ margin = 10;
 
 if(stats){
     draw_set_alpha(0.8);
-    draw_rectangle(10, 10, view_wview - 10, view_hview - 10, false);
-    
-    xDif = (view_wport - 10) - 10;
-    yDif = (view_hport - 10) - 10;
-    
+    draw_rectangle(10, 10, window_get_width() - 10, window_get_height() - 10, false);
+    draw_set_font(font0)
     draw_set_colour(c_white);
     draw_set_alpha(1);
-    
-    for(i = 1; i &lt; (instance_number(o_friendly_body) + 1); i++;){
-        draw_text(100+margin, (yDif/instance_number(o_friendly_body)) * i, "AI" + string(i));
+    draw_set_halign(fa_center)
+    for(i = 1; i &lt; (instance_number(o_friendly_body) + 1); i++;){//if this ai is not the last i = (its number)
+        draw_text(window_get_width()/2, ((window_get_height()-20)/15)*i , "AI" + string(i));
     }
 }
 
 draw_set_colour(c_black);
+draw_set_halign(fa_left)
 </string>
           </argument>
         </arguments>
