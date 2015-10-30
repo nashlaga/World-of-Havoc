@@ -63,6 +63,7 @@
   </shaders>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_treads</object>
@@ -75,7 +76,6 @@
     <object>objects\o_enemy_head</object>
     <object>objects\o_friendly_head</object>
     <object>objects\o_pshell1</object>
-    <object>objects\o_aishell1</object>
     <object>objects\o_wall</object>
     <object>objects\o_crater</object>
     <object>objects\o_tankdebr</object>
@@ -93,6 +93,7 @@
     <object>objects\o_random_graphics1</object>
     <object>objects\o_resolutionop</object>
     <object>objects\obj_gamebutton</object>
+    <object>objects\o_teankdebr</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mainmenu</room>

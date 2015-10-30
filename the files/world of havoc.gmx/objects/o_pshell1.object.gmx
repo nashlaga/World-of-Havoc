@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>3</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -32,11 +32,12 @@ randomize()
 
 col=0
 c=0
-alarm[0]=o_player_head.dis/28
+
 alarm[1]=5;
 alarm[3]=1
-
-
+if instance_exists(o_player_head){
+alarm[0]=o_player_head.dis/28
+}
 </string>
           </argument>
         </arguments>

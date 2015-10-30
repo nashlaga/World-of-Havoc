@@ -98,6 +98,7 @@ if(room = mainmenu){
 } else {
     selected = false;
 }
+x = view_wview / 2;
 /*
 if(selected){
     draw_set_colour(c_white);

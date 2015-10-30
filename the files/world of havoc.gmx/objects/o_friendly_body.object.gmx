@@ -59,7 +59,8 @@ alarm[0]=4
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !speed=0
+            <string>///treads
+if !speed=0
 {td=instance_create(x,y,o_treads) //creates skid mark treads
 td.image_angle=direction}
 in=1
@@ -87,14 +88,14 @@ alarm[0]=15
           <argument>
             <kind>1</kind>
             <string>if instance_exists(o_enemy_body){
-frpr=instance_nearest(x,y,ep)
+frpr=instance_nearest(x,y,ep)//nearest enemy
 
 friction=0.1
 head=instance_nearest(x,y,o_friendly_head)
-s=head.sh
+s=head.sh//setting shell variable to the same as the instance's head
 image_angle=direction
 
-if speed&gt;maxspeed{speed=maxspeed}
+if speed&gt;maxspeed{speed=maxspeed}//limiting speed
 
 
 
@@ -104,9 +105,9 @@ dir=point_direction(x,y,frpr.x,frpr.y)
 
 
 if distance_to_object(frpr)&gt;closest      
-{ friction=0.1
+{ friction=0.1//braking
 
-if dir-15&lt;direction and dir+15&gt;direction {
+if dir-15&lt;direction and dir+15&gt;direction {//turning script
 if tsp&lt;0{tsp+=0.01}else{tsp-=0.01}
 }
 else{
@@ -193,7 +194,7 @@ direction+=tsp
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>o_tankdebr</object>
+            <object>o_teankdebr</object>
           </argument>
           <argument>
             <kind>4</kind>

@@ -94,7 +94,7 @@ ini_close()
 view_wport=loadwidth;
 view_hport=loadheight;
 surface_resize(application_surface,view_wport,view_hport);
-display_set_gui_size(view_wview,view_hview);
+//display_set_gui_size(view_wview,view_hview);
 window_set_size(view_wport,view_hport);
 }
 ResSet=0
@@ -106,7 +106,7 @@ ResSet=0
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -128,10 +128,10 @@ if ResSet=1{wport=1280 hport=720}
 if ResSet=2{wport=1600 hport=900}
 if ResSet=3{wport=1920 hport=1080}
 
-
+draw_set_font(font0)
 
 draw_set_colour(c_white)
-draw_text(x+64,y+64,string(wport) + " x " + string(hport)+ "#use the arrowkeys to change the resolution,#
+draw_text(x+16,y+16,string(wport) + " x " + string(hport)+ "#use the arrowkeys to change the resolution,#
 once you have found the one you want hit enter#and it will apply (and save) your setting")
 
 
@@ -382,31 +382,32 @@ window_set_size(view_wport,view_hport);}
 view_wport=1024;
 view_hport=576;
 surface_resize(application_surface,view_wport,view_hport);
-display_set_gui_size(view_wview,view_hview);
+//display_set_gui_size(view_wview,view_hview);
 window_set_size(view_wport,view_hport);}
 
 if ResSet=1{
 view_wport=1280;
 view_hport=720;
 surface_resize(application_surface,view_wport,view_hport);
-display_set_gui_size(view_wview,view_hview);
+//display_set_gui_size(view_wview,view_hview);
 window_set_size(view_wport,view_hport);}
 
 if ResSet=2{
 view_wport=1600;
 view_hport=900;
 surface_resize(application_surface,view_wport,view_hport);
-display_set_gui_size(view_wview,view_hview);
+//display_set_gui_size(view_wview,view_hview);
 window_set_size(view_wport,view_hport);}
 
 if ResSet=3{
 view_wport=1920;
 view_hport=1080;
 surface_resize(application_surface,view_wport,view_hport);
-display_set_gui_size(view_wview,view_hview);
+//display_set_gui_size(view_wview,view_hview);
 window_set_size(view_wport,view_hport);}
 
 //saving the setting
+
 
 
 alarm[0]=10
