@@ -90,7 +90,7 @@ s = head.sh;
 if sped &gt; maxspeed speed=maxspeed;
 if sped &lt; -maxspeed speed=-maxspeed;
 
-if !speed=0{
+if speed!=0{
     td = instance_create(x,y,o_treads); //creates skid mark treads
     td.image_angle = direction;//sets skid mark angle
 }
@@ -117,11 +117,15 @@ alarm[0]=treadtimer
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Step. Input, friction, head, direction, oh my!
-delta = delta_time;
+            <string>
+/// Step. Input, friction, head, direction, oh my!
+
+
 head=instance_nearest(x,y,o_player_head)
 
 friction=0.05
+
+if hp&gt;0{
 
 if keyboard_check(ord("W")) {speed+=0.1}
 if keyboard_check(ord("S")) {speed-=0.1}
@@ -142,10 +146,15 @@ if !y=o_player_body.y
 
 if speed&gt;maxspeed{speed=maxspeed}
 if speed&lt; -maxspeed{speed=-maxspeed}
+}
+else{
+with head instance_destroy()
+sprite_index=s_enemy_bodydead
+}
+
+
 
 audio_listener_position(x,y,0)
-
-
 
 </string>
           </argument>

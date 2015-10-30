@@ -63,6 +63,7 @@
   </shaders>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_treads</object>

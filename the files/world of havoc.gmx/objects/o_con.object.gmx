@@ -25,13 +25,113 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.particlesetting=3
+            <string>randomize()
+global.particlesetting=3
 global.shell1dam=23
 global.shell1in=4
 global.particlestream=0
 global.victoryState = 0;
-
+friendlynum=instance_number(o_friendly_body)
+enemynum=instance_number(o_enemy_body)
 stats = false;
+
+enames[3]="Bill"
+enames[5]="Ben"
+enames[4]="John"
+enames[0]="Laura"
+enames[12]="Kate"
+enames[19]="Nigel"
+enames[21]="Mary"
+enames[2]="Timothy"
+enames[1]="Bob"
+enames[18]="Jim"
+enames[6]="Jenny"
+enames[7]="Toby"
+enames[13]="Davydd"
+enames[8]="Hope"
+enames[20]="Nathanwy"
+enames[17]="360xxspniper12XxXxu"
+enames[9]="xxX - TiSiJGDsddDdKLk - Xxx"
+enames[10]="regginKILLER420"
+enames[14]="XxwaveofdoomxX"
+enames[11]="Nashlaga"
+enames[15]="Pretentious Geek"
+enames[16]="Chinese James"
+
+names[1]="Bill"
+names[0]="Ben"
+names[21]="John"
+names[20]="Laura"
+names[19]="Kate"
+names[18]="Nigel"
+names[17]="Mary"
+names[16]="Timothy"
+names[15]="Bob"
+names[14]="Jim"
+names[13]="Jenny"
+names[12]="Toby"
+names[11]="Davydd"
+names[10]="Hope"
+names[9]="Nathanwy"
+names[8]="360xxspniper12XxXxu"
+names[7]="xxX - TiSiJGDsddDdKLk - Xxx"
+names[6]="regginKILLER420"
+names[5]="XxwaveofdoomxX"
+names[4]="Nashlaga"
+names[3]="Pretentious Geek"
+names[2]="Chinese James"
+
+alarm[0]=1
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>game_restart()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///check winstate
+if global.victoryState=0
+{alarm[0]=1}
+else{alarm[1]=300}
+
 </string>
           </argument>
         </arguments>
@@ -54,9 +154,7 @@ stats = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xDif, yDif, margin;
-
-margin = 10;
+            <string>
 
 if(stats){
     draw_set_alpha(0.8);
@@ -64,14 +162,25 @@ if(stats){
     draw_set_font(font0)
     draw_set_colour(c_white);
     draw_set_alpha(1);
-    draw_set_halign(fa_center)
+    draw_set_halign(fa_left)
     for(i = 1; i &lt; (instance_number(o_friendly_body) + 1); i++;){//if this ai is not the last i = (its number)
-        draw_text(window_get_width()/2, ((window_get_height()-20)/15)*i , "AI" + string(i));
+        draw_text(30, (((window_get_height()-20)/friendlynum)*i)-20 , names[i-1])}
+    for(i = 1; i &lt; (instance_number(o_enemy_body) + 1); i++;){//if this ai is not the last i = (its number)
+        draw_text((window_get_width()/2)+30, (((window_get_height()-20)/enemynum)*i)-20 , enames[i-1]);
     }
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    draw_set_font(font1)
+    draw_text((window_get_width()/4)+20,40,"Friendlies alive: " + string(instance_number(o_friendly_body)))
+    draw_text(((window_get_width()/4)+20)*3,40,"Enemies alive: " + string(instance_number(o_enemy_body)))
+    
+
 }
 
 draw_set_colour(c_black);
 draw_set_halign(fa_left)
+draw_set_valign(fa_middle)
+
 </string>
           </argument>
         </arguments>
@@ -111,10 +220,14 @@ if(global.victoryState == 0){
 
 if(!instance_exists(o_enemy_body)){
     global.victoryState = 1;
+    stats=true
+    
 }
 
-if(!instance_exists(o_friendly_body) and !instance_exists(obj_player)){
+if(!instance_exists(o_friendly_body) and obj_player.sprite_index=s_enemy_bodydead){
     global.victoryState = -1;
+   
+    stats=true
 }
 
 

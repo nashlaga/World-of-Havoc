@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>randomize()
 body=instance_nearest(x,y,o_friendly_body)
-fa=1
+fa=2
 sh=0
 canshoot=0
 los = 800;//the line of sight of the turret, 300 pixels
